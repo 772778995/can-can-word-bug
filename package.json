@@ -1,0 +1,60 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build && typedoc src/index.ts",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "eslint": "eslint --ext .js,.ts ./src",
+    "prettier": "prettier --write \"src/*.{js,ts,scss,html,md,json}\" --ignore-path .gitignore"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "name": "can-can-word-bug",
+  "author": "whc",
+  "module": "dist/can-can-word-bug.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/can-can-word-bug.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/can-can-word-bug.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^8.2.4",
+    "@types/lodash": "^4.14.194",
+    "@types/node": "^18.15.11",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "eslint": "^8.38.0",
+    "husky": "^8.0.3",
+    "size-limit": "^8.2.4",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.5.0",
+    "typedoc": "^0.24.4",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "windicss": "^3.5.6"
+  }
+}
