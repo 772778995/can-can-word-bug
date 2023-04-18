@@ -14,6 +14,7 @@ const uploadFile = async (
     type: 'file',
     style: {
       opacity: '0',
+      position: 'fixed',
       pointerEvents: 'none'
     } as Partial<CSSStyleDeclaration>
   }
