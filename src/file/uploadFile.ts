@@ -31,15 +31,12 @@ const uploadFile = async (
       else reject(new Error('No file selected'))
     }
 
-    fileInput.oncancel = () => reject(new Error('User canceled'))
-
     fileInput.onerror = reject
 
     fileInput.click()
-  }).finally(fileInput.remove)) as File
+  }).finally(() => fileInput.remove())) as File
 
   return file
 }
 
 export default uploadFile
-
