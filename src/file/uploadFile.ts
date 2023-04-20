@@ -2,6 +2,7 @@ import createEl from '../el/createEl'
 import DeepPartial from '../types/DeepPartial'
 import { encrypt } from '../string/getCrypto'
 import merge from 'lodash/merge'
+import cloneDeep from 'lodash/cloneDeep'
 import JsZip from 'jszip'
 
 /** 文件 */
@@ -11,6 +12,7 @@ type JsZipGenOpts = JsZip.JSZipGeneratorOptions & {
   encrypt?: string
 }
 type ZipOpts = JsZipGenOpts | boolean
+type ZipRes<T> = { zipFile: T, fileList: TFile[] }
 
 /**
  * 上传文件
@@ -25,6 +27,7 @@ const uploadFile = (() => {
       pointerEvents: 'none',
     }
   })
+  const initAttrs = cloneDeep(fileInput)
   document.body.appendChild(fileInput)
   return async <
     Attrs extends DeepPartial<Omit<HTMLInputElement, 'type' | 'style'>> & {
@@ -41,15 +44,15 @@ const uploadFile = (() => {
       zipOpts?: ZipOpts,
     },
     Res extends Opts['zipOpts'] extends true
-    ? Blob
+    ? ZipRes<Blob>
     : Opts['zipOpts'] extends JsZipGenOpts
-    ? Opts['zipOpts']['type'] extends 'array' ? Array<number>[]
-    : Opts['zipOpts']['type'] extends 'arraybuffer' ? ArrayBuffer
-    : Opts['zipOpts']['type'] extends 'base64' | 'binarystring' | 'string' ? string
-    : Opts['zipOpts']['type'] extends 'blob' ? Blob
-    : Opts['zipOpts']['type'] extends 'nodebuffer' ? Buffer
-    : Opts['zipOpts']['type'] extends 'uint8array' ? Uint8Array
-    : never
+    ? Opts['zipOpts']['type'] extends 'array' ? ZipRes<Array<number>[]>
+    : Opts['zipOpts']['type'] extends 'arraybuffer' ? ZipRes<ArrayBuffer>
+    : Opts['zipOpts']['type'] extends 'base64' | 'binarystring' | 'string' ? ZipRes<string>
+    : Opts['zipOpts']['type'] extends 'blob' ? ZipRes<Blob>
+    : Opts['zipOpts']['type'] extends 'nodebuffer' ? ZipRes<Buffer>
+    : Opts['zipOpts']['type'] extends 'uint8array' ? ZipRes<Uint8Array>
+    : ZipRes<Blob>
 
     : Attrs['multiple'] extends true
     ? TFile[]
@@ -66,14 +69,17 @@ const uploadFile = (() => {
     opts = { zipOpts: false } as Opts
   ): Promise<Res> => {
     fileInput.value = ''
-    merge(fileInput, attrs)
+    merge(fileInput, initAttrs, attrs)
     fileInput.dispatchEvent(new MouseEvent('click'))
     const { zipOpts: _zipOpts } = merge({ zip: false }, opts)
-    const zipOpts = _zipOpts === true ? { type: 'blob' } as JsZipGenOpts : _zipOpts
+    const zipOpts = (_zipOpts === true ? { type: 'blob' } : _zipOpts) as JsZipGenOpts
+    if (!zipOpts.type) zipOpts.type = 'blob'
+
+    /** 是否多选（文件夹也算） */
+    const isMultiple = ([attrs.multiple, attrs.webkitdirectory] as unknown as boolean[]).includes(true)
 
     const res = (await new Promise((resolve, reject) => {
       fileInput.onchange = async e => {
-        const isMultiple = ([attrs.multiple, attrs.webkitdirectory] as unknown as boolean[]).includes(true)
         const target = e.target as HTMLInputElement
         const files = target.files
         if (!files) return reject(new Error('No file selected'))
@@ -92,12 +98,13 @@ const uploadFile = (() => {
                 jsZip.file(file.name, fileRes)
                 resolve(true)
               }
-              fileReader.readAsArrayBuffer(file)
+              if (zipOpts.encrypt) fileReader.readAsDataURL(file)
+              else fileReader.readAsArrayBuffer(file)
             })
           })
           await Promise.all(loadFilePromiseList)
-          const res = await jsZip.generateAsync(zipOpts)
-          return resolve(res)
+          const zipFile = await jsZip.generateAsync(zipOpts)
+          return resolve({ fileList, zipFile })
         }
 
         if (isMultiple) return resolve(fileList)
