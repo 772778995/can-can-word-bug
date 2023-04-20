@@ -1,4 +1,5 @@
 import DeepPartial from '../types/DeepPartial'
+import merge from 'lodash/merge'
 
 /**
  * 创建HTML元素
@@ -14,7 +15,7 @@ const createEl = <
   attrs = {} as Attrs
 ) => {
   const el = document.createElement(tagName)
-  Object.assign(el, attrs)
+  merge(el, attrs)
   return el
 }
 
