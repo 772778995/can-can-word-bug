@@ -1,8 +1,8 @@
 import createEl from './el/createEl'
 export { createEl }
 
-import uploadFile from './file/uploadFile'
-export { uploadFile }
+import loadLocaleFiles from './file/uploadFile'
+export { loadLocaleFiles as uploadFile }
 
 import Object from './types/Object'
 import Writable from './types/Writable'

@@ -1,9 +1,10 @@
 import createEl from '../el/createEl'
 import DeepPartial from '../types/DeepPartial'
 import merge from 'lodash/merge'
-import JsZip, { OutputType } from 'jszip'
+import JsZip from 'jszip'
 
 type TFile = File & { webkitRelativePath: string }
+type ZipOpts = JsZip.JSZipGeneratorOptions | boolean
 
 /**
  * 上传文件
@@ -20,7 +21,6 @@ const uploadFile = (() => {
   document.body.appendChild(fileInput)
   return async <
     Attrs extends DeepPartial<Omit<HTMLInputElement, 'type' | 'style'>> & { webkitdirectory?: boolean },
-    ZipOpts extends JsZip.JSZipGeneratorOptions<OutputType> | boolean,
     Opts extends {
       /** JsZip 参数，true 则为默认参数，false 则不压缩，默认为 false */
       zipOpts?: ZipOpts
@@ -39,7 +39,6 @@ const uploadFile = (() => {
   ): Promise<Res> => {
     merge(fileInput, attrs)
     const { zipOpts } = merge({ zip: false }, opts)
-
     const res = (await new Promise((resolve, reject) => {
       fileInput.onchange = async e => {
         const isMultiple = [attrs.multiple, attrs.webkitdirectory].includes(true)
