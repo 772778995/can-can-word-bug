@@ -1,5 +1,5 @@
 {
-  "version": "0.0.19",
+  "version": "0.0.20",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -12,7 +12,8 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build && typedoc src/index.ts",
+    "build": "tsdx build",
+    "doc": "typedoc src/index.ts",
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
