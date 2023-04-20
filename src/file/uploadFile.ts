@@ -2,7 +2,6 @@ import createEl from '../el/createEl'
 import DeepPartial from '../types/DeepPartial'
 import { encrypt } from '../string/getCrypto'
 import merge from 'lodash/merge'
-import cloneDeep from 'lodash/cloneDeep'
 import JsZip from 'jszip'
 
 /** 文件 */
@@ -19,16 +18,7 @@ type ZipRes<T> = { zipFile: T, fileList: TFile[] }
  * @returns 选择的文件
  */
 const uploadFile = (() => {
-  const fileInput = createEl('input', {
-    type: 'file',
-    style: {
-      opacity: '0',
-      position: 'fixed',
-      pointerEvents: 'none',
-    }
-  })
-  const initAttrs = cloneDeep(fileInput)
-  document.body.appendChild(fileInput)
+  let fileInput: HTMLInputElement | null = null
   return async <
     Attrs extends DeepPartial<Omit<HTMLInputElement, 'type' | 'style'>> & {
       /** 是否上传文件夹（multiple 二选一） */
@@ -68,9 +58,21 @@ const uploadFile = (() => {
     /** 其他配置 */
     opts = { zipOpts: false } as Opts
   ): Promise<Res> => {
-    fileInput.value = ''
-    merge(fileInput, initAttrs, attrs)
-    fileInput.dispatchEvent(new MouseEvent('click'))
+    if (fileInput) {
+      fileInput.parentNode?.removeChild(fileInput)
+      fileInput = null
+    }
+    attrs = merge({
+      type: 'file',
+      style: {
+        opacity: '0',
+        position: 'fixed',
+        pointerEvents: 'none',
+      },
+    } as HTMLInputElement, attrs)
+    fileInput = createEl('input', attrs)
+    document.body.appendChild(fileInput)
+    fileInput!.dispatchEvent(new MouseEvent('click'))
     const { zipOpts: _zipOpts } = merge({ zip: false }, opts)
     const zipOpts = (_zipOpts === true ? { type: 'blob' } : _zipOpts) as JsZipGenOpts
     if (zipOpts && !zipOpts.type) zipOpts.type = 'blob'
@@ -79,7 +81,7 @@ const uploadFile = (() => {
     const isMultiple = attrs.multiple || attrs.webkitdirectory
 
     const res = (await new Promise((resolve, reject) => {
-      fileInput.onchange = async e => {
+      fileInput!.onchange = async e => {
         const target = e.target as HTMLInputElement
         const files = target.files
         if (!files) return reject(new Error('No file selected'))
@@ -111,7 +113,7 @@ const uploadFile = (() => {
         if (!isMultiple) return resolve(fileList[0])
       }
 
-      fileInput.onerror = reject
+      fileInput!.onerror = reject
     }))
 
     return res as Res
