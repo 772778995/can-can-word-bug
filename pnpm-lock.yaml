@@ -2,10 +2,12 @@ lockfileVersion: 5.4
 
 specifiers:
   '@size-limit/preset-small-lib': ^8.2.4
+  '@types/crypto-js': ^4.1.1
   '@types/lodash': ^4.14.194
   '@types/node': ^18.15.11
   '@typescript-eslint/eslint-plugin': ^5.58.0
   '@typescript-eslint/parser': ^5.58.0
+  crypto-js: ^4.1.1
   eslint: ^8.38.0
   husky: ^8.0.3
   jszip: ^3.10.1
@@ -17,11 +19,13 @@ specifiers:
   typescript: ^5.0.4
 
 dependencies:
+  crypto-js: 4.1.1
   jszip: 3.10.1
   lodash: 4.17.21
 
 devDependencies:
   '@size-limit/preset-small-lib': 8.2.4_size-limit@8.2.4
+  '@types/crypto-js': 4.1.1
   '@types/lodash': 4.14.194
   '@types/node': 18.15.11
   '@typescript-eslint/eslint-plugin': 5.58.0_gjoxkwycl3ml7yxlw3iuo7gyna
@@ -1892,6 +1896,10 @@ packages:
       '@babel/types': 7.21.4
     dev: true
 
+  /@types/crypto-js/4.1.1:
+    resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
+    dev: true
+
   /@types/eslint-visitor-keys/1.0.0:
     resolution: {integrity: sha512-OCutwjDZ4aFS6PB1UZ988C4YgwlBHJd6wCeQqaLdmadZ/7e+w79+hbMUFC1QXDNCmdyoRfAFdm0RypzwR+Qpag==}
     dev: true
@@ -3024,6 +3032,10 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
     dev: true
+
+  /crypto-js/4.1.1:
+    resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
+    dev: false
 
   /cssom/0.3.8:
     resolution: {integrity: sha512-b0tGHbfegbhPJpxpiBPU2sCkigAqtM9O121le6bbOlgyV+NyGyCmVfJ6QW9eRjz8CpNfWEOYBIMIGRYkLwsIYg==}
