@@ -73,7 +73,7 @@ const uploadFile = (() => {
     fileInput.dispatchEvent(new MouseEvent('click'))
     const { zipOpts: _zipOpts } = merge({ zip: false }, opts)
     const zipOpts = (_zipOpts === true ? { type: 'blob' } : _zipOpts) as JsZipGenOpts
-    if (!zipOpts.type) zipOpts.type = 'blob'
+    if (zipOpts && !zipOpts.type) zipOpts.type = 'blob'
 
     /** 是否多选（文件夹也算） */
     const isMultiple = ([attrs.multiple, attrs.webkitdirectory] as unknown as boolean[]).includes(true)
