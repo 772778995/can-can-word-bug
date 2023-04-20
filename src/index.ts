@@ -4,6 +4,9 @@ export { createEl }
 import loadLocaleFiles from './file/uploadFile'
 export { loadLocaleFiles as uploadFile }
 
+import getCrypto, { encrypt, decrypt } from './string/getCrypto'
+export { getCrypto, encrypt, decrypt }
+
 import Object from './types/Object'
 import Writable from './types/Writable'
 import ValueOf from './types/ValueOf'
