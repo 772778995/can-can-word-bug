@@ -27,12 +27,22 @@ const uploadFile = (() => {
       /** JsZip 参数，true 则为 { type: 'blob' } ，false 则不压缩，默认为 false */
       zipOpts?: ZipOpts
     },
-    Res extends Opts['zipOpts'] extends true | JsZipGenOpts ? string | Blob | number[] | Uint8Array | ArrayBuffer | Buffer :
-    Attrs['multiple'] extends true
+    Res extends Opts['zipOpts'] extends true
+    ? Blob
+    : Opts['zipOpts'] extends JsZipGenOpts
+    ? Opts['zipOpts']['type'] extends 'array' ? Array<number>[]
+    : Opts['zipOpts']['type'] extends 'arraybuffer' ? ArrayBuffer
+    : Opts['zipOpts']['type'] extends 'base64' | 'binarystring' | 'string' ? string
+    : Opts['zipOpts']['type'] extends 'blob' ? Blob
+    : Opts['zipOpts']['type'] extends 'nodebuffer' ? Buffer
+    : Opts['zipOpts']['type'] extends 'uint8array' ? Uint8Array
+    : never
+
+    : Attrs['multiple'] extends true
     ? TFile[]
     : Attrs['webkitdirectory'] extends true
     ? TFile[]
-    : TFile,
+    : TFile
   >(
     /** input[type=file]的属性 */
     attrs = {} as Attrs,
