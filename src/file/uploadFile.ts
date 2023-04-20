@@ -76,7 +76,7 @@ const uploadFile = (() => {
     if (zipOpts && !zipOpts.type) zipOpts.type = 'blob'
 
     /** 是否多选（文件夹也算） */
-    const isMultiple = ([attrs.multiple, attrs.webkitdirectory] as unknown as boolean[]).includes(true)
+    const isMultiple = attrs.multiple || attrs.webkitdirectory
 
     const res = (await new Promise((resolve, reject) => {
       fileInput.onchange = async e => {
@@ -84,7 +84,7 @@ const uploadFile = (() => {
         const files = target.files
         if (!files) return reject(new Error('No file selected'))
         if (!isMultiple && files.length < 1) reject(new Error('No file selected'))
-        const fileList = [...files as unknown as TFile[]]
+        const fileList = Array.from(files) as TFile[]
 
         if (zipOpts) {
           const jsZip = new JsZip()
