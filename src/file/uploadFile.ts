@@ -7,53 +7,41 @@ import merge from 'lodash/merge'
  * @param attrs input[type=file]的属性
  * @returns 选择的文件
  */
-const uploadFile = async <
-  Attrs extends DeepPartial<Omit<HTMLInputElement, 'type' | 'style'>> & { webkitdirectory?: boolean },
-  Res extends Attrs['multiple'] extends true
-  ? File[]
-  : Attrs['webkitdirectory'] extends true
-  ? File[]
-  : File
->(
-  attrs = {} as Attrs
-): Promise<Res> => {
-  const defaultAttrs = {
-    type: 'file',
+const uploadFile = (() => {
+  const fileInput = createEl('input', {
     style: {
       opacity: '0',
       position: 'fixed',
-      pointerEvents: 'none'
-    } as Partial<CSSStyleDeclaration>
-  }
-
-  attrs = merge(defaultAttrs, attrs)
-
-  const fileInput = createEl('input', attrs)
-  document.body.appendChild(fileInput)
-
-  const res = (await new Promise((resolve, reject) => {
-    fileInput.onchange = e => {
-      const target = e.target as HTMLInputElement
-      const files = target.files
-      if (files) {
-        if ([attrs.multiple, attrs.webkitdirectory].includes(true)) resolve([...((files as unknown) as File[])])
-        else resolve(files[0] as File)
-      } else reject(new Error('No file selected'))
+      pointerEvents: 'none',
     }
-
-    const interval = setInterval(() => {
-      if (!fileInput.value) {
-        clearInterval(interval)
-        reject(new Error('File upload canceled'))
+  })
+  document.body.appendChild(fileInput)
+  return async <
+    Attrs extends DeepPartial<Omit<HTMLInputElement, 'type' | 'style'>> & { webkitdirectory?: boolean },
+    Res extends Attrs['multiple'] extends true
+    ? File[]
+    : Attrs['webkitdirectory'] extends true
+    ? File[]
+    : File
+  >(
+    attrs = {} as Attrs
+  ): Promise<Res> => {
+    merge(fileInput, attrs)
+    const res = (await new Promise((resolve, reject) => {
+      fileInput.onchange = e => {
+        const target = e.target as HTMLInputElement
+        const files = target.files
+        if (files) {
+          if ([attrs.multiple, attrs.webkitdirectory].includes(true)) resolve([...((files as unknown) as File[])])
+          else resolve(files[0] as File)
+        } else reject(new Error('No file selected'))
       }
-    }, 100)
+      fileInput.onerror = reject
+      fileInput.dispatchEvent(new MouseEvent('click'))
+    }))
 
-    fileInput.onerror = reject
-
-    fileInput.dispatchEvent(new MouseEvent('click'))
-  }).finally(() => fileInput.parentNode?.removeChild(fileInput))) as Res
-
-  return res
-}
+    return res as Res
+  }
+})()
 
 export default uploadFile
