@@ -1,10 +1,15 @@
 import createEl from '../el/createEl'
 import DeepPartial from '../types/DeepPartial'
+import { encrypt } from '../string/getCrypto'
 import merge from 'lodash/merge'
 import JsZip from 'jszip'
 
+/** 文件 */
 type TFile = File & { webkitRelativePath: string }
-type JsZipGenOpts = JsZip.JSZipGeneratorOptions
+type JsZipGenOpts = JsZip.JSZipGeneratorOptions & {
+  /** 密钥，为空则不加密。默认为空，仅支持压缩包加密 */
+  encrypt?: string
+}
 type ZipOpts = JsZipGenOpts | boolean
 
 /**
@@ -22,10 +27,18 @@ const uploadFile = (() => {
   })
   document.body.appendChild(fileInput)
   return async <
-    Attrs extends DeepPartial<Omit<HTMLInputElement, 'type' | 'style'>> & { webkitdirectory?: boolean },
+    Attrs extends DeepPartial<Omit<HTMLInputElement, 'type' | 'style'>> & {
+      /** 是否上传文件夹（multiple 二选一） */
+      webkitdirectory?: Attrs['multiple'] extends true ? never : boolean
+      /** 是否多选 （webkitdirectory 二选一） */
+      multiple?: Attrs['webkitdirectory'] extends true ? never : boolean
+    },
     Opts extends {
-      /** JsZip 参数，true 则为 { type: 'blob' } ，false 则不压缩，默认为 false */
-      zipOpts?: ZipOpts
+      /**
+       * JsZip 生成压缩包的参数，true 则为 { type: 'blob' } ，false 则不压缩。默认为 false
+       * @see https://stuk.github.io/jszip/
+       */
+      zipOpts?: ZipOpts,
     },
     Res extends Opts['zipOpts'] extends true
     ? Blob
@@ -44,7 +57,10 @@ const uploadFile = (() => {
     ? TFile[]
     : TFile
   >(
-    /** input[type=file]的属性 */
+    /**
+     * input[type="file"] 的属性
+     * @see https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLInputElement
+     */
     attrs = {} as Attrs,
     /** 其他配置 */
     opts = { zipOpts: false } as Opts
@@ -52,10 +68,12 @@ const uploadFile = (() => {
     fileInput.value = ''
     merge(fileInput, attrs)
     fileInput.dispatchEvent(new MouseEvent('click'))
-    const { zipOpts } = merge({ zip: false }, opts)
+    const { zipOpts: _zipOpts } = merge({ zip: false }, opts)
+    const zipOpts = _zipOpts === true ? { type: 'blob' } as JsZipGenOpts : _zipOpts
+
     const res = (await new Promise((resolve, reject) => {
       fileInput.onchange = async e => {
-        const isMultiple = [attrs.multiple, attrs.webkitdirectory].includes(true)
+        const isMultiple = ([attrs.multiple, attrs.webkitdirectory] as unknown as boolean[]).includes(true)
         const target = e.target as HTMLInputElement
         const files = target.files
         if (!files) return reject(new Error('No file selected'))
@@ -69,14 +87,16 @@ const uploadFile = (() => {
             await new Promise((resolve, reject) => {
               fileReader.onload = () => {
                 if (!fileReader.result) return reject('Fail to read file')
-                jsZip.file(file.name, fileReader.result)
+                let fileRes = fileReader.result
+                if (zipOpts.encrypt) fileRes = encrypt(zipOpts.encrypt, fileRes as string)
+                jsZip.file(file.name, fileRes)
                 resolve(true)
               }
               fileReader.readAsArrayBuffer(file)
             })
           })
           await Promise.all(loadFilePromiseList)
-          const res = await jsZip.generateAsync(zipOpts === true ? { type: 'blob' } : zipOpts)
+          const res = await jsZip.generateAsync(zipOpts)
           return resolve(res)
         }
 
