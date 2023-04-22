@@ -1,8 +1,8 @@
 import createEl from './el/createEl'
 export { createEl }
 
-import loadLocaleFiles from './file/uploadFile'
-export { loadLocaleFiles as uploadFile }
+import uploadFile from './file/uploadFile'
+export { uploadFile }
 
 import getCrypto, { encrypt, decrypt } from './string/getCrypto'
 export { getCrypto, encrypt, decrypt }
