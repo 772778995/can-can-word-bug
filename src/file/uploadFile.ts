@@ -122,8 +122,7 @@ const uploadFile = (() => {
 
 export default uploadFile
 
-
-type ZipFile = Omit<JsZip.JSZipObject, 'dir'> & { path: string }
+type ZipFile = Omit<JsZip.JSZipObject, 'dir' | 'async' | 'nodeStream'> & { path: string }
 
 /**
  * 解密压缩包
