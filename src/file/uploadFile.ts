@@ -1,14 +1,14 @@
 import createEl from '../el/createEl'
 import DeepPartial from '../types/DeepPartial'
-import { encrypt } from '../string/getCrypto'
+import { encrypt, decrypt } from '../string/getCrypto'
 import merge from 'lodash/merge'
-import JsZip from 'jszip'
+import JsZip, { JSZipObject } from 'jszip'
 
 /** 文件 */
 type TFile = File & { webkitRelativePath: string }
 type JsZipGenOpts = JsZip.JSZipGeneratorOptions & {
   /** 密钥，为空则不加密。默认为空，仅支持压缩包加密 */
-  encrypt?: string
+  encryptKey?: string
 }
 type ZipOpts = JsZipGenOpts | boolean
 type ZipRes<T> = { zipFile: T, fileList: TFile[] }
@@ -96,11 +96,11 @@ const uploadFile = (() => {
               fileReader.onload = () => {
                 if (!fileReader.result) return reject('Fail to read file')
                 let fileRes = fileReader.result
-                if (zipOpts.encrypt) fileRes = encrypt(zipOpts.encrypt, fileRes as string)
+                if (zipOpts.encryptKey) fileRes = encrypt(zipOpts.encryptKey, fileRes as string)
                 jsZip.file(file.name, fileRes)
                 resolve(true)
               }
-              if (zipOpts.encrypt) fileReader.readAsDataURL(file)
+              if (zipOpts.encryptKey) fileReader.readAsDataURL(file)
               else fileReader.readAsArrayBuffer(file)
             })
           })
@@ -121,3 +121,40 @@ const uploadFile = (() => {
 })()
 
 export default uploadFile
+
+
+type ZipFile = Omit<JsZip.JSZipObject, 'dir'> & { path: string }
+
+/**
+ * 解密压缩包
+ * @param zipFile 压缩包文件对象
+ * @param encryptKey 密钥
+ * @returns 压缩包解密后的文件列表
+ */
+export const decryptZip = async (zipFile: File, encryptKey: string): Promise<ZipFile[]> => {
+  const zipFileReader = new FileReader()
+  await new Promise((resolve, reject) => {
+    zipFileReader.onload = resolve
+    zipFileReader.onerror = reject
+    zipFileReader.readAsArrayBuffer(zipFile)
+  })
+  const jsZip = new JsZip()
+  const zipFileRes = await jsZip.loadAsync(zipFileReader.result!)
+  const encryptedFileList: { path: string, file: JSZipObject }[] = []
+  zipFileRes.forEach((path, file) => {
+    if (file.dir) return
+    encryptedFileList.push({ path, file })
+  })
+  const getDecryptedFileList = () => Promise.all(
+    encryptedFileList.map(async item => {
+      const file = decrypt(encryptKey, await item.file.async('string'))
+      return {
+        path: item.path,
+        ...item.file,
+        file
+      }
+    })
+  )
+  const decryptedFileList = await getDecryptedFileList()
+  return decryptedFileList
+}
