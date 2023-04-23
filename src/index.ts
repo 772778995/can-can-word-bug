@@ -1,8 +1,8 @@
 import createEl from './el/createEl'
 export { createEl }
 
-import loadLocaleFiles from './file/uploadFile'
-export { loadLocaleFiles as uploadFile }
+import uploadFile from './file/uploadFile'
+export { uploadFile }
 
 import getCrypto, { encrypt, decrypt } from './string/getCrypto'
 export { getCrypto, encrypt, decrypt }
@@ -14,4 +14,5 @@ import DeepPartial from './types/DeepPartial'
 import DeepRequired from './types/DeepRequired'
 import Enumerate from './types/Enumerate'
 import RangeNum from './types/RangeNum'
-export { Object, Writable, ValueOf, DeepPartial, DeepRequired, Enumerate, RangeNum }
+import EitherOr from './types/EitherOr'
+export { Object, Writable, ValueOf, DeepPartial, DeepRequired, Enumerate, RangeNum, EitherOr }
