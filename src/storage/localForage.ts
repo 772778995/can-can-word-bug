@@ -11,9 +11,9 @@ export const localForage = {
    * declare module 'can-can-word-bug' {
    *  interface LocalForage { yourKey: 'yourValue' }
    * }
-   * localStorage.set(yourKey, 'yourValue')
+   * localStorage.setItem(yourKey, 'yourValue')
    */
-  async set<K extends keyof LocalForage>(
+  async setItem<K extends keyof LocalForage>(
     /** 要储存的键 */
     key: K,
     /** 要储存的值 */
