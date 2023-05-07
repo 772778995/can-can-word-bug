@@ -1,8 +1,8 @@
 import createEl from './el/createEl'
 export { createEl }
 
-import localForage, { LocalForage } from './storage/localForage'
-export { localForage, LocalForage }
+import localForage, { ILocalForage } from './storage/localForage'
+export { localForage, ILocalForage }
 
 import uploadFile, { decryptZip } from './file/uploadFile'
 export { uploadFile, decryptZip }

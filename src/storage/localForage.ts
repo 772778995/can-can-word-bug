@@ -1,6 +1,6 @@
 import localforage from 'localforage'
 
-export interface LocalForage {}
+export interface ILocalForage {}
 
 /** 本地储存 */
 export const localForage = {
@@ -13,17 +13,17 @@ export const localForage = {
    * }
    * localStorage.setItem(yourKey, 'yourValue')
    */
-  async setItem<K extends keyof LocalForage>(
+  async setItem<K extends keyof ILocalForage>(
     /** 要储存的键 */
     key: K,
     /** 要储存的值 */
-    val: LocalForage[K]
+    val: ILocalForage[K]
   ) {
     return localforage.setItem(key, val)
   },
   /** 获取本地储存 */
-  getItem<K extends keyof LocalForage>(key: K) {
-    return localforage.getItem(key) as Promise<LocalForage[K] | null>
+  getItem<K extends keyof ILocalForage>(key: K) {
+    return localforage.getItem(key) as Promise<ILocalForage[K] | null>
   }
 }
 
