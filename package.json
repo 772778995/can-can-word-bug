@@ -1,5 +1,5 @@
 {
-  "version": "0.0.21",
+  "version": "0.0.22",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -58,6 +58,7 @@
   "dependencies": {
     "crypto-js": "^4.1.1",
     "jszip": "^3.10.1",
+    "localforage": "^1.10.0",
     "lodash": "^4.17.21"
   }
 }
