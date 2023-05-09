@@ -6,6 +6,8 @@ export { getLocalForage }
 
 import uploadFile, { decryptZip } from './file/uploadFile'
 export { uploadFile, decryptZip }
+import { getCsvStr, exportCsv } from './file/csv'
+export { getCsvStr, exportCsv }
 
 import getCrypto, { encrypt, decrypt } from './string/getCrypto'
 export { getCrypto, encrypt, decrypt }
