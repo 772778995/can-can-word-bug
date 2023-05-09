@@ -1,11 +1,13 @@
 import createEl from './el/createEl'
 export { createEl }
 
-import localForage, { ILocalForage } from './storage/localForage'
-export { localForage, ILocalForage }
+import getLocalForage from './storage/getLocalForage'
+export { getLocalForage }
 
 import uploadFile, { decryptZip } from './file/uploadFile'
 export { uploadFile, decryptZip }
+import { getCsvStr, exportCsv } from './file/csv'
+export { getCsvStr, exportCsv }
 
 import getCrypto, { encrypt, decrypt } from './string/getCrypto'
 export { getCrypto, encrypt, decrypt }
