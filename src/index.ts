@@ -20,4 +20,5 @@ import DeepRequired from './types/DeepRequired'
 import Enumerate from './types/Enumerate'
 import RangeNum from './types/RangeNum'
 import EitherOr from './types/EitherOr'
-export { Object, Writable, ValueOf, DeepPartial, DeepRequired, Enumerate, RangeNum, EitherOr }
+import ExtractCommonProps from './types/ExtractCommonProps'
+export { Object, Writable, ValueOf, DeepPartial, DeepRequired, Enumerate, RangeNum, EitherOr, ExtractCommonProps }
