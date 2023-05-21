@@ -11,6 +11,8 @@ export { getCsvStr, exportCsv }
 
 import getCrypto, { encrypt, decrypt } from './string/getCrypto'
 export { getCrypto, encrypt, decrypt }
+import getUUID from './string/getUUID'
+export { getUUID }
 
 import Object from './types/Object'
 import Writable from './types/Writable'
@@ -21,4 +23,14 @@ import Enumerate from './types/Enumerate'
 import RangeNum from './types/RangeNum'
 import EitherOr from './types/EitherOr'
 import ExtractCommonProps from './types/ExtractCommonProps'
-export { Object, Writable, ValueOf, DeepPartial, DeepRequired, Enumerate, RangeNum, EitherOr, ExtractCommonProps }
+export {
+  Object,
+  Writable,
+  ValueOf,
+  DeepPartial,
+  DeepRequired,
+  Enumerate,
+  RangeNum,
+  EitherOr,
+  ExtractCommonProps
+}
