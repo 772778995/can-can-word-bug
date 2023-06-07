@@ -12,6 +12,9 @@ export { getCsvStr, exportCsv }
 import getCrypto, { encrypt, decrypt } from './string/getCrypto'
 export { getCrypto, encrypt, decrypt }
 
+import delay from './promise/delay'
+export { delay }
+
 import Object from './types/Object'
 import Writable from './types/Writable'
 import ValueOf from './types/ValueOf'
@@ -21,4 +24,5 @@ import Enumerate from './types/Enumerate'
 import RangeNum from './types/RangeNum'
 import EitherOr from './types/EitherOr'
 import ExtractCommonProps from './types/ExtractCommonProps'
-export { Object, Writable, ValueOf, DeepPartial, DeepRequired, Enumerate, RangeNum, EitherOr, ExtractCommonProps }
+import HTMLElementTagName from './types/HTMLElementTagName'
+export { Object, Writable, ValueOf, DeepPartial, DeepRequired, Enumerate, RangeNum, EitherOr, ExtractCommonProps, HTMLElementTagName }
