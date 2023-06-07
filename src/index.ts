@@ -11,6 +11,8 @@ export { getCsvStr, exportCsv }
 
 import getCrypto, { encrypt, decrypt } from './string/getCrypto'
 export { getCrypto, encrypt, decrypt }
+import getUUID from './string/getUUID'
+export { getUUID }
 
 import delay from './promise/delay'
 export { delay }
@@ -25,4 +27,15 @@ import RangeNum from './types/RangeNum'
 import EitherOr from './types/EitherOr'
 import ExtractCommonProps from './types/ExtractCommonProps'
 import HTMLElementTagName from './types/HTMLElementTagName'
-export { Object, Writable, ValueOf, DeepPartial, DeepRequired, Enumerate, RangeNum, EitherOr, ExtractCommonProps, HTMLElementTagName }
+export {
+  Object,
+  Writable,
+  ValueOf,
+  DeepPartial,
+  DeepRequired,
+  Enumerate,
+  RangeNum,
+  EitherOr,
+  ExtractCommonProps,
+  HTMLElementTagName
+}
