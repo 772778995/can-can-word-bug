@@ -29,8 +29,8 @@ import localforage from 'localforage'
  *   })
  *   .then(() => console.log('迭代完成'))
  */
-const getLocalForage = <T extends { [k: string]: unknown }>() => ({
-  ...localforage,
+const getLocalForage = <T extends { [k: string]: unknown }>(opts: LocalForageOptions) => ({
+  ...localforage.createInstance(opts),
   /** 设置key对应的值 */
   async setItem<K extends (keyof T) & string>(key: K, val: T[K]) {
     return localforage.setItem(key, val)
