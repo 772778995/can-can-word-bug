@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import localforage from 'localforage'
 
 /**
@@ -29,31 +30,19 @@ import localforage from 'localforage'
  *   })
  *   .then(() => console.log('迭代完成'))
  */
-const getLocalForage = <T extends { [k: string]: unknown }>(opts: LocalForageOptions) => ({
-  ...localforage.createInstance(opts),
-  /** 设置key对应的值 */
-  async setItem<K extends (keyof T) & string>(key: K, val: T[K]) {
-    return localforage.setItem(key, val)
-  },
-  /** 获取key对应的值 */
-  getItem<K extends (keyof T) & string>(key: K) {
-    return localforage.getItem(key) as Promise<T[K] | null>
-  },
-  /** 删除key对应的值 */
-  removeItem<K extends (keyof T) & string>(key: K) {
-    return localforage.removeItem(key)
-  },
-  /** 获取所有key值 */
-  keys<K extends (keyof T) & string>() {
-    return localforage.keys() as Promise<K[]>
-  },
-  /** 迭代数据库中所有的键值对，如果有一个value是undefined，就会推出，并且将 该键传入成功回调内 */
-  // eslint-disable-next-line no-unused-vars
-  iterate<K extends (keyof T) & string, Cb extends (value: T[K], key: K, iterationNumber: number) => unknown>(
-    cb: Cb
-  ) {
-    return localforage.iterate(cb as any)
+const getLocalForage = <T extends { [k: string]: unknown }>(opts: LocalForageOptions = {}) => {
+  return localforage.createInstance(opts) as Omit<LocalForage, 'setItem' | 'getItem' | 'removeItem' | 'keys' | 'iterate'> & {
+    /** 设置key对应的值 */
+    setItem: <K extends (keyof T) & string> (key: K, val: T[K]) => Promise<void>
+    /** 获取key对应的值 */
+    getItem: <K extends (keyof T) & string> (key: K) => Promise<T[K] | null>
+    /** 删除key对应的值 */
+    removeItem: <K extends (keyof T) & string> (key: K) => Promise<void>
+    /** 获取所有key值 */
+    keys: <K extends (keyof T) & string>() => Promise<K[]>
+    /** 迭代数据库中所有的键值对，如果有一个value是undefined，就会推出，并且将 该键传入成功回调内 */
+    iterate: <K extends keyof T & string, Cb extends (value: T[K], key: K, iterationNumber: number) => any>(cb: Cb) => Promise<void>
   }
-})
+}
 
 export default getLocalForage
