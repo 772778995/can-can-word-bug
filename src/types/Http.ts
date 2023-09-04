@@ -114,7 +114,7 @@ export enum HttpCode {
   NETWORK_AUTHENTICATION_REQUIRED = 511
 }
 
-export const HttpLabelMap: Record<HttpCode, string> = {
+export const HttpCodeChinaLableMap: Record<HttpCode, string> = {
   [HttpCode.CONTINUE]: '继续',
   [HttpCode.SWITCHING_PROTOCOLS]: '切换协议',
   [HttpCode.PROCESSING]: '处理中',
