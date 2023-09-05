@@ -49,4 +49,4 @@ export {
 }
 
 import { HttpCode, HttpCodeChinaLableMap } from './types/Http'
-export default { HttpCode, HttpCodeChinaLableMap }
+export { HttpCode, HttpCodeChinaLableMap }
