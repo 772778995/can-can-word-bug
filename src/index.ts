@@ -17,6 +17,7 @@ export { getUUID }
 import Object from './types/Object'
 import Writable from './types/Writable'
 import ValueOf from './types/ValueOf'
+import DeepMerge from './types/DeepMerge'
 import DeepPartial from './types/DeepPartial'
 import DeepRequired from './types/DeepRequired'
 import Enumerate from './types/Enumerate'
@@ -27,6 +28,7 @@ export {
   Object,
   Writable,
   ValueOf,
+  DeepMerge,
   DeepPartial,
   DeepRequired,
   Enumerate,
