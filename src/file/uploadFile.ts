@@ -26,6 +26,19 @@ const uploadFile = (() => {
        * @see https://gildas-lormeau.github.io/zip.js/api/interfaces/ZipWriterConstructorOptions.html
        */
       zipOpts?: ZipWriterConstructorOptions | boolean
+      /**
+       * 限制大小
+       * - 单位字节
+       * - 在上传多个文件时，限制规则为每一个文件的字节大小，
+       * 如果要限制所有文件字节大小，将 checkAllFileSize 设置为 true
+       */
+      size?: number
+      /**
+       * 限制所有文件字节大小
+       * - size 为空则无效
+       * @default false
+       */
+      checkAllFileSize?: boolean
     },
     Res extends Opts['zipOpts'] extends ZipWriterConstructorOptions | true
       ? { fileList: TFile[]; zipFile: Blob }
@@ -75,6 +88,21 @@ const uploadFile = (() => {
         if (!files) return reject(new Error('No file selected'))
         if (!isMultiple && files.length < 1) reject(new Error('No file selected'))
         const fileList = Array.from(files) as TFile[]
+
+        // 如果限制了文件大小
+        if (opts.size) {
+          // 如果检查所有文件总和大小
+          if (opts.checkAllFileSize) {
+            const allSize = fileList.reduce((allSize, item) => allSize + item.size, 0)
+            if (allSize > opts.size) return reject(new Error('File exceeds limit size'))
+          }
+          // 否认则检查单个文件大小
+          else {
+            for (const file of fileList) {
+              if (file.size > opts.size) return reject(new Error('File exceeds limit size'))
+            }
+          }
+        }
 
         // 如果开启了压缩
         let { zipOpts } = opts
