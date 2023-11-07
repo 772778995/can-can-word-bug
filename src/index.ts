@@ -1,5 +1,6 @@
 import createEl from './el/createEl'
-export { createEl }
+import isElementVisible from './el/isElementVisible'
+export { createEl, isElementVisible }
 
 import getLocalForage from './storage/getLocalForage'
 export { getLocalForage }
