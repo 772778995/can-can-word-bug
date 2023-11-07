@@ -20,19 +20,20 @@ const uploadFile = (() => {
       multiple?: Attrs['webkitdirectory'] extends true ? never : boolean
     },
     Opts extends {
-    /**
-     * 压缩配置选项
-     * @default false
-     * @see https://gildas-lormeau.github.io/zip.js/api/interfaces/ZipWriterConstructorOptions.html
-     */
+      /**
+       * 压缩配置选项
+       * @default false
+       * @see https://gildas-lormeau.github.io/zip.js/api/interfaces/ZipWriterConstructorOptions.html
+       */
       zipOpts?: ZipWriterConstructorOptions | boolean
     },
-    Res extends Opts['zipOpts'] extends ZipWriterConstructorOptions | true ? { fileList: TFile[], zipFile: Blob }
-    : Attrs['multiple'] extends true
-    ? TFile[]
-    : Attrs['webkitdirectory'] extends true
-    ? TFile[]
-    : TFile
+    Res extends Opts['zipOpts'] extends ZipWriterConstructorOptions | true
+      ? { fileList: TFile[]; zipFile: Blob }
+      : Attrs['multiple'] extends true
+      ? TFile[]
+      : Attrs['webkitdirectory'] extends true
+      ? TFile[]
+      : TFile
   >(
     /**
      * input[type="file"] 的属性
@@ -47,15 +48,19 @@ const uploadFile = (() => {
       fileInput = null
     }
     // @ts-ignore
-    attrs = merge({
-      type: 'file',
-      style: {
-        position: 'fixed',
-        left: '0', top: '0',
-        opacity: '0',
-        pointerEvents: 'none',
-      },
-    } as HTMLInputElement, attrs)
+    attrs = merge(
+      {
+        type: 'file',
+        style: {
+          position: 'fixed',
+          left: '0',
+          top: '0',
+          opacity: '0',
+          pointerEvents: 'none'
+        }
+      } as HTMLInputElement,
+      attrs
+    )
     fileInput = createEl('input', attrs)
     document.body.appendChild(fileInput)
     fileInput!.dispatchEvent(new MouseEvent('click'))
@@ -63,7 +68,7 @@ const uploadFile = (() => {
     /** 是否多选（文件夹也算） */
     const isMultiple = attrs.multiple || attrs.webkitdirectory
 
-    const res = (await new Promise((resolve, reject) => {
+    const res = await new Promise((resolve, reject) => {
       fileInput!.onchange = async e => {
         const target = e.target as HTMLInputElement
         const files = target.files
@@ -84,7 +89,7 @@ const uploadFile = (() => {
       }
 
       fileInput!.onerror = reject
-    }))
+    })
 
     return res as Res
   }
