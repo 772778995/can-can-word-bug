@@ -23,6 +23,7 @@ import WritableBy from './types/WritableBy'
 import ReadonlyBy from './types/ReadonlyBy'
 import ValueOf from './types/ValueOf'
 import PartialBy from './types/PartialBy'
+import DeepMerge from './types/DeepMerge'
 import DeepPartial from './types/DeepPartial'
 import RequiredBy from './types/RequiredBy'
 import DeepRequired from './types/DeepRequired'
@@ -38,6 +39,7 @@ export {
   ReadonlyBy,
   ValueOf,
   PartialBy,
+  DeepMerge,
   DeepPartial,
   RequiredBy,
   DeepRequired,
