@@ -4,8 +4,8 @@ export { createEl }
 import getLocalForage from './storage/getLocalForage'
 export { getLocalForage }
 
-import uploadFile, { decryptZip } from './file/uploadFile'
-export { uploadFile, decryptZip }
+import uploadFile from './file/uploadFile'
+export { uploadFile }
 import { getCsvStr, exportCsv } from './file/csv'
 export { getCsvStr, exportCsv }
 
