@@ -58,8 +58,10 @@
   },
   "dependencies": {
     "@zip.js/zip.js": "^2.7.30",
+    "blob-util": "^2.0.2",
     "crypto-js": "^4.1.1",
     "file-type": "^18.6.0",
+    "image-dimensions": "^2.1.0",
     "jszip": "^3.10.1",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",

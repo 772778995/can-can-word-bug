@@ -8,12 +8,18 @@ dependencies:
   '@zip.js/zip.js':
     specifier: ^2.7.30
     version: 2.7.30
+  blob-util:
+    specifier: ^2.0.2
+    version: 2.0.2
   crypto-js:
     specifier: ^4.1.1
     version: 4.1.1
   file-type:
     specifier: ^18.6.0
     version: 18.6.0
+  image-dimensions:
+    specifier: ^2.1.0
+    version: 2.1.0
   jszip:
     specifier: ^3.10.1
     version: 3.10.1
@@ -2727,6 +2733,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /blob-util@2.0.2:
+    resolution: {integrity: sha512-T7JQa+zsXXEa6/8ZhHcQEW1UFfVM49Ts65uBkFL6fz2QmrElqmbajIDJvuA0tEhRe5eIjpV9ZF+0RfZR9voJFQ==}
+    dev: false
+
   /brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
     dependencies:
@@ -4494,6 +4504,12 @@ packages:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
     engines: {node: '>= 4'}
     dev: true
+
+  /image-dimensions@2.1.0:
+    resolution: {integrity: sha512-h+wbkHVhD1VAxTtedBqSwQj+AKmz90qiryKPwE9sjxheC4nWytVUsHWX0mixXY1D6pxwcE0opPJbikJRb34LoQ==}
+    engines: {node: '>=18'}
+    hasBin: true
+    dev: false
 
   /immediate@3.0.6:
     resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
