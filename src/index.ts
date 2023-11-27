@@ -5,6 +5,9 @@ export { createEl, isElementVisible }
 import getLocalForage from './storage/getLocalForage'
 export { getLocalForage }
 
+import getImgFileInfo from './img/getImgFileInfo'
+export { getImgFileInfo }
+
 import uploadFile from './file/uploadFile'
 export { uploadFile }
 import { getCsvStr, exportCsv } from './file/csv'
