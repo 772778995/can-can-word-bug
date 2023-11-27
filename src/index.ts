@@ -21,6 +21,9 @@ export { getUUID }
 import delay from './promise/delay'
 export { delay }
 
+import getType from './type/getType'
+export { getType }
+
 import Object from './types/Object'
 import Writable from './types/Writable'
 import WritableBy from './types/WritableBy'
