@@ -1,8 +1,6 @@
 import createEl from '../el/createEl'
 import merge from 'lodash/merge'
 import zip, { ZipWriterConstructorOptions } from './zip'
-import { fileTypeFromBlob } from 'file-type'
-import mime from 'mime'
 
 /** 文件 */
 type TFile = File & { webkitRelativePath: string }
@@ -23,12 +21,7 @@ const uploadFile = (() => {
        * 'image/png, image/jpeg' // 等同 '.png, .jpg, .jpeg'，只接受 PNG 和 JPEG 文件
        */
       accept?: string
-      /** 
-       * 校验文件类型
-       * - 根据文件真实类型
-       */
-      checkFileTypes?: boolean
-      /** 
+      /**
        * 允许选择多个文件
        * - 当用户所在的平台允许使用 Shift 或者 Control 键时，用户可以选择多个文件
        * - 与 webkitdirectory 二选一
@@ -122,18 +115,6 @@ const uploadFile = (() => {
         if (!files) return reject(new Error('No file selected'))
         if (!isMultiple && files.length < 1) reject(new Error('No file selected'))
         const fileList = Array.from(files) as TFile[]
-
-        // 如果开启检查文件真实类型
-        if (opts.checkFileTypes) {
-          await Promise.all(fileList.map(async file => {
-            const mimeType = mime.getType(file.name)
-            const res = await fileTypeFromBlob(file)
-            // 检查文件真实 MIME 类型
-            if (mimeType && res?.mime) {
-              if (mimeType !== res.mime) reject('File type not allow')
-            }
-          }))
-        }
 
         // 如果限制了文件大小
         if (opts.maxSize) {

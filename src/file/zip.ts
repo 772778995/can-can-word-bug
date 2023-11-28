@@ -1,7 +1,7 @@
 import { BlobReader, BlobWriter, ZipWriter, ZipWriterConstructorOptions } from '@zip.js/zip.js'
 import mime from 'mime'
 
-export { ZipWriterConstructorOptions }
+export type { ZipWriterConstructorOptions }
 
 /** 压缩文件 */
 const zip = async (

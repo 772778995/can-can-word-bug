@@ -1,5 +1,5 @@
 import { base64StringToBlob, blobToArrayBuffer } from 'blob-util'
-import {imageDimensionsFromData} from 'image-dimensions'
+import { imageDimensionsFromData } from 'image-dimensions'
 
 /** 获取图片的的宽高 */
 const getImgFileInfo = async (file: Uint8Array | string | Blob) => {

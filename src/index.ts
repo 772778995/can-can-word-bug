@@ -39,7 +39,7 @@ import RangeNum from './types/RangeNum'
 import EitherOr from './types/EitherOr'
 import ExtractCommonProps from './types/ExtractCommonProps'
 import HTMLElementTagName from './types/HTMLElementTagName'
-export {
+export type {
   Object,
   Writable,
   WritableBy,

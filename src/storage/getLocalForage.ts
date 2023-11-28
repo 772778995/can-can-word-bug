@@ -2,19 +2,14 @@
 import localforage from 'localforage'
 
 interface LocalForageDbInstanceOptions {
-  /** 啊啊啊 */
   name?: string
-
   storeName?: string
 }
 
 interface LocalForageOptions extends LocalForageDbInstanceOptions {
   driver?: string | string[]
-
   size?: number
-
   version?: number
-
   description?: string
 }
 
