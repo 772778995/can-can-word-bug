@@ -3,6 +3,18 @@
   "version": "0.3.2",
   "type": "module",
   "main": "src/index.ts",
+  "description": "can-can-word-bug  是一个 TS 编写的工具库",
+  "homepage": "https://can-can-word-bug.pages.dev",
+  "author": "请叫我大聪明",
+  "bugs": {
+    "url": "https://github.com/772778995/can-can-word-bug/issues/new",
+    "email": "772778995@qq.com"
+  },
+  "keywords": [
+    "js",
+    "ts",
+    "utils"
+  ],
   "scripts": {
     "dev": "vite",
     "doc": "typedoc src/index.ts",
