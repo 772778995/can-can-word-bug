@@ -1,18 +1,68 @@
-# Vue 3 + TypeScript + Vite
+# can-can-word-bug
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 概览
 
-## Recommended IDE Setup
+`can-can-word-bug`  是一个 TS 编写的工具库
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+[仓库地址](https://github.com/772778995/can-can-word-bug)
 
-## Type Support For `.vue` Imports in TS
+[在线文档](https://can-can-word-bug.pages.dev/)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+[更新日志](https://github.com/772778995/can-can-word-bug/blob/master/CHANGELOG.md)
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+[开源协议]([raw.githubusercontent.com/772778995/can-can-word-bug/master/LICENSE](https://raw.githubusercontent.com/772778995/can-can-word-bug/master/LICENSE))
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+
+## 快速开始
+
+## npm 引用
+
+其中的每一个函数都是可以按需引入的，强烈建议使用 npm 的方式使用该依赖
+
+1. 安装依赖
+
+   ```bash
+   npm i can-can-word-bug
+   # yarn add can-can-word-bug
+   # pnpm i can-can-word-bug
+   ```
+
+2. 引入模块并使用相关函数
+
+   ```typescript
+   import { uploadFile } from 'can-can-word-bug'
+   
+   const getFiles = async () => {
+     const files = await uploadFile()
+     console.log(files)
+   }
+   ```
+
+
+
+### CDN 引用
+
+1. 引入本地 js 文件
+
+   ```html
+   <script src="./dist/canCanWordBug.umd.cjs"></script>
+   ```
+
+   或者使用在线 CDN
+
+   ```html
+   <script src="https://unpkg.com/can-can-word-bug@0.3.2/dist/canCanWordBug.umd.cjs"></script>
+   ```
+
+2. 使用函数
+
+   ```js
+   const getFiles = async () => {
+     const files = await canCanWordBug.uploadFile()
+     console.log(files)
+   }
+   ```
+
+   
+
