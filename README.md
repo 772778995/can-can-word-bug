@@ -10,7 +10,7 @@
 
 [更新日志](https://github.com/772778995/can-can-word-bug/blob/master/CHANGELOG.md)
 
-[开源协议]([raw.githubusercontent.com/772778995/can-can-word-bug/master/LICENSE](https://raw.githubusercontent.com/772778995/can-can-word-bug/master/LICENSE))
+[开源协议](https://raw.githubusercontent.com/772778995/can-can-word-bug/master/LICENSE)
 
 
 
