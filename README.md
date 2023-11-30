@@ -2,19 +2,17 @@
 
 ## 概览
 
-`can-can-word-bug`  是一个 TS 编写的工具库
+`can-can-word-bug` 是一个 TS 编写的工具库
 
 [仓库地址](https://github.com/772778995/can-can-word-bug)
 
 [在线文档](https://can-can-word-bug.pages.dev/)
 
-[提交BUG](https://github.com/772778995/can-can-word-bug/issues/new)
+[提交 BUG](https://github.com/772778995/can-can-word-bug/issues/new)
 
 [更新日志](https://github.com/772778995/can-can-word-bug/blob/master/CHANGELOG.md)
 
 [开源协议](https://raw.githubusercontent.com/772778995/can-can-word-bug/master/LICENSE)
-
-
 
 ## 快速开始
 
@@ -34,7 +32,7 @@
 
    ```typescript
    import { uploadFile } from 'can-can-word-bug'
-   
+
    const getFiles = async () => {
      const files = await uploadFile()
      console.log(files)
@@ -48,13 +46,13 @@
 1. 引入本地 js 文件
 
    ```html
-   <script src="./dist/canCanWordBug.umd.cjs"></script>
+   <script src="./dist/can-can-word-bug.umd.cjs"></script>
    ```
 
    或者使用在线 CDN
 
    ```html
-   <script src="https://unpkg.com/can-can-word-bug@0.3.2/dist/canCanWordBug.umd.cjs"></script>
+   <script src="https://unpkg.com/can-can-word-bug@latest/dist/can-can-word-bug.umd.cjs"></script>
    ```
 
 2. 使用函数
@@ -65,6 +63,4 @@
      console.log(files)
    }
    ```
-
-   
 

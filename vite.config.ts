@@ -12,14 +12,9 @@ export default defineConfig({
   },
   build: {
     lib: {
-      name: packageJSON.name,
+      name: pkgName,
       entry: './src/index.ts',
       formats: ['cjs', 'es', 'umd', 'iife']
-    },
-    rollupOptions: {
-      output: {
-        extend: true
-      }
     }
   }
 })
