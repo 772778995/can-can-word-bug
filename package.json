@@ -24,7 +24,7 @@
     "doc": "typedoc src/index.ts",
     "build": "vite build",
     "prepare": "vite build",
-    "w-publish": "npm run build && npm run doc && nrm use npm && npm publish"
+    "prepublish": "vite build"
   },
   "dependencies": {
     "@zip.js/zip.js": "^2.7.30",
