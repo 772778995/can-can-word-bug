@@ -23,6 +23,7 @@
     "dev": "vite",
     "doc": "typedoc src/index.ts",
     "build": "vite build",
+    "prepare": "npm run doc",
     "prepublish": "vite build"
   },
   "dependencies": {
