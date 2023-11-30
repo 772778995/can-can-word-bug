@@ -2,7 +2,8 @@
   "name": "can-can-word-bug",
   "version": "0.3.2",
   "type": "module",
-  "main": "src/index.ts",
+  "main": "dist/can-can-word-bug.js",
+  "types": "dist/index.d.ts",
   "description": "can-can-word-bug  是一个 TS 编写的工具库",
   "homepage": "https://can-can-word-bug.pages.dev",
   "author": "请叫我大聪明",
@@ -43,6 +44,8 @@
     "tslib": "^2.6.2",
     "typedoc": "^0.24.4",
     "typescript": "^5.0.4",
-    "vite": "^5.0.0"
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.6.4"
   }
 }
+
