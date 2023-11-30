@@ -23,7 +23,6 @@
     "dev": "vite",
     "doc": "typedoc src/index.ts",
     "build": "vite build",
-    "prepare": "vite build",
     "prepublish": "vite build"
   },
   "dependencies": {
@@ -48,3 +47,4 @@
     "vite-plugin-dts": "^3.6.4"
   }
 }
+
