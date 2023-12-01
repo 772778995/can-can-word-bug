@@ -1,0 +1,9 @@
+{
+  "entryPoints": ["./src/index.ts", "./src"],
+  "includes": "./src",
+  "out": "docs",
+  "exclude": ["node_modules", "dist"],
+  "theme": "default",
+  "plugin": ["typedoc-plugin-markdown"],
+  "name": "can-can-word-bug"
+}

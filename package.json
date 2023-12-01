@@ -21,9 +21,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "doc": "typedoc src/index.ts",
+    "doc": "typedoc",
     "build": "vite build",
-    "prepare": "npm run doc",
     "prepublish": "vite build"
   },
   "dependencies": {
@@ -43,6 +42,7 @@
     "@types/node": "^18.15.11",
     "tslib": "^2.6.2",
     "typedoc": "^0.24.4",
+    "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "^5.1.6",
     "vite": "^5.0.0",
     "vite-plugin-dts": "^3.6.4"
