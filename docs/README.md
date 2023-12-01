@@ -8,7 +8,7 @@ can-can-word-bug / [Exports](modules.md)
 
 [仓库地址](https://github.com/772778995/can-can-word-bug)
 
-[在线文档](https://can-can-word-bug.pages.dev/)
+[开发文档](https://github.com/772778995/can-can-word-bug/blob/master/docs/modules.md)
 
 [提交 BUG](https://github.com/772778995/can-can-word-bug/issues/new)
 

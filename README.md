@@ -6,7 +6,7 @@
 
 [仓库地址](https://github.com/772778995/can-can-word-bug)
 
-[开发文档](https://github.com/772778995/can-can-word-bug/blob/master/docs/modules/index.md)
+[开发文档](https://github.com/772778995/can-can-word-bug/blob/master/docs/modules.md)
 
 [提交 BUG](https://github.com/772778995/can-can-word-bug/issues/new)
 
