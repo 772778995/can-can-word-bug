@@ -1,4 +1,4 @@
-can-can-word-bug / [Modules](modules.md)
+can-can-word-bug / [Exports](modules.md)
 
 # can-can-word-bug
 
