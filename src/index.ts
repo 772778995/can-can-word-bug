@@ -56,6 +56,3 @@ export type {
   ExtractCommonProps,
   HTMLElementTagName
 }
-
-import { HttpCode, HttpCodeChinaLableMap } from './types/Http'
-export { HttpCode, HttpCodeChinaLableMap }
