@@ -5,7 +5,7 @@
   "main": "dist/can-can-word-bug.js",
   "types": "dist/can-can-word-bug.d.ts",
   "description": "can-can-word-bug  是一个 TS 编写的工具库",
-  "homepage": "https://can-can-word-bug.pages.dev",
+  "homepage": "https://github.com/772778995/can-can-word-bug",
   "author": "请叫我大聪明",
   "files": [
     "dist/"
