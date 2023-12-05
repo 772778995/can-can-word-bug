@@ -13,7 +13,7 @@ export default defineConfig({
   build: {
     lib: {
       name: pkgName,
-      entry: './src/index.ts',
+      entry: './src/can-can-word-bug.ts',
       formats: ['cjs', 'es', 'umd', 'iife']
     }
   }
