@@ -1,5 +1,5 @@
 {
-  "entryPoints": ["./src/index.ts"],
+  "entryPoints": ["./src/can-can-word-bug.ts"],
   "out": "docs",
   "exclude": ["node_modules", "dist"],
   "theme": "default",
