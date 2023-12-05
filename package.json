@@ -1,6 +1,6 @@
 {
   "name": "can-can-word-bug",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "type": "module",
   "main": "dist/can-can-word-bug.js",
   "types": "dist/can-can-word-bug.d.ts",
