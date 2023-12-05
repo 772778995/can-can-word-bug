@@ -5,7 +5,23 @@ import zip, { ZipWriterConstructorOptions } from './zip'
 /** 文件 */
 type TFile = File & { webkitRelativePath: string }
 
-/** 上传文件 */
+/**
+ * 上传文件
+ * @example
+ * uploadFile({
+ *   'accept': 'image/*', // 接受所有图片文件 HTML5（支持）
+ *   // 'accept': 'audio/*', // 接受所有音频文件 HTML5（支持）
+ *   // 'accept': 'video/*', // 接受所有视频文件 HTML5（支持）
+ *   multiple: false, // 是否多选
+ *   capture: 'camera', // 'camera' | 'camcorder' | 'microphone'
+ *   directory: false, // 是否允许选择文件夹
+ *   mozFullPath: false, // 是否返回完整路径，仅 Firefox 支持
+ *   webkitRelativePath: false, // 是否返回 webkitRelativePath，仅 WebKit 支持
+ *   zipOpts: false, // 是否压缩文件
+ *   maxSize: false, // 最大文件大小，单位：字节
+ *   checkAllFileSize: false // 是否检查所有文件大小，单位：字节
+ * })
+ */
 const uploadFile = (() => {
   let fileInput: HTMLInputElement | null = null
   return async <
@@ -45,12 +61,12 @@ const uploadFile = (() => {
        * 获取用户选择的文件的完整路径
        * - Firefox 内核支持
        */
-      mozFullPath?: string
+      mozFullPath?: boolean
       /**
        * 获取用户选择的文件的相对路径
        * - Chrome、Safari 内核支持
        */
-      webkitRelativePath?: string
+      webkitRelativePath?: boolean
       /**
        * 压缩配置选项
        * @default false
