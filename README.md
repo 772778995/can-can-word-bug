@@ -31,11 +31,11 @@
 2. 引入模块并使用相关函数
 
    ```typescript
-   import { uploadFile } from 'can-can-word-bug'
+   import { getUUID } from 'can-can-word-bug'
 
    const getFiles = async () => {
-     const files = await uploadFile()
-     console.log(files)
+     const uuid = getUUID()
+     console.log(uuid)
    }
    ```
 
@@ -59,8 +59,8 @@
 
    ```js
    const getFiles = async () => {
-     const files = await canCanWordBug.uploadFile()
-     console.log(files)
+     const uuid = await canCanWordBug.getUUID()
+     console.log(uuid)
    }
    ```
 
