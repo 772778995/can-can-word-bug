@@ -1,13 +1,13 @@
 /**
  * 获取 UUID
  * @example
- * getUUID() // b250d159-e1b6-4a87-9002-885d90033be3
+ * getUUID() // xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
  */
 const getUUID = () => {
   const tempURL = URL.createObjectURL(new Blob())
   const uuid = tempURL.toString()
   URL.revokeObjectURL(tempURL)
-  return uuid.substr(uuid.lastIndexOf('/') + 1)
+  return uuid.match(/(\w|\d)+-.+/)![0]
 }
 
 export default getUUID
