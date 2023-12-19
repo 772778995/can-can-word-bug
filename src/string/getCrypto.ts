@@ -17,6 +17,16 @@ export const decrypt = (key: string, str: string) => CryptoJS.AES.encrypt(str, k
 /**
  * 获取加密解密的方法
  * @param key 密钥
+ * @example
+ * const cpt = getCrypt('your-key')
+ * const rawStr = Math.random().toString()
+ * const encryptedStr = cpt.encrypt(rawStr)
+ * const decryptedStr = cpt.decrypt(encryptedStr)
+ * console.log(`
+ * rawStr        : ${rawStr}
+ * encryptedStr  : ${encryptedStr}
+ * decryptedStr  : ${decryptedStr}
+ * `)
  */
 const getCrypt = (key: string) => ({
   /**
