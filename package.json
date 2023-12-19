@@ -1,15 +1,9 @@
 {
   "name": "can-can-word-bug",
   "version": "0.3.5",
-  "type": "module",
-  "main": "dist/can-can-word-bug.cjs",
+  "main": "dist/can-can-word-bug.umd.cjs",
+  "module": "dist/can-can-word-bug.es.js",
   "types": "dist/can-can-word-bug.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/can-can-word-bug.js",
-      "require": "./dist/can-can-word-bug.cjs"
-    }
-  },
   "description": "can-can-word-bug  是一个 TS 编写的工具库",
   "homepage": "https://github.com/772778995/can-can-word-bug",
   "author": "请叫我大聪明",

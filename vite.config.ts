@@ -14,8 +14,8 @@ export default defineConfig({
     lib: {
       name: pkgName,
       entry: './src/can-can-word-bug.ts',
-      formats: ['cjs', 'es', 'umd', 'iife']
+      formats: ['cjs', 'es', 'umd', 'iife'],
+      fileName: (format, name) => `${name}.${format}.js`
     }
   }
 })
-
