@@ -6,7 +6,7 @@ export { default as isElementVisible } from './el/isElementVisible'
 export { default as getLocalForage } from './storage/getLocalForage'
 
 // img
-export { default as getImgFileInfo } from './img/getImgFileInfo'
+export { default as getImgSize } from './img/getImgSize'
 
 // file
 export { default as uploadFile } from './file/uploadFile'
