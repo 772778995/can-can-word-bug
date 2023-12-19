@@ -137,12 +137,14 @@ const uploadFile = (() => {
           // 如果检查所有文件总和大小
           if (opts.checkAllFileSize) {
             const allSize = fileList.reduce((allSize, item) => allSize + item.size, 0)
-            if (allSize > opts.maxSize) return reject(new Error('File exceeds limit size'))
+            if (allSize > opts.maxSize)
+              return reject(new Error(`File exceeds limit size：${allSize} > ${opts.maxSize}`))
           }
           // 否认则检查单个文件大小
           else {
             for (const file of fileList) {
-              if (file.size > opts.maxSize) return reject(new Error('File exceeds limit size'))
+              if (file.size > opts.maxSize)
+                return reject(new Error(`File exceeds limit size: ${file.size} > ${opts.maxSize}`))
             }
           }
         }
