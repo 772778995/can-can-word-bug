@@ -1,6 +1,6 @@
 {
   "name": "can-can-word-bug",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "type": "module",
   "main": "dist/can-can-word-bug.cjs",
   "types": "dist/can-can-word-bug.d.ts",
@@ -54,4 +54,3 @@
     "vite-plugin-dts": "^3.6.4"
   }
 }
-
