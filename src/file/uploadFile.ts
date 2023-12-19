@@ -151,7 +151,7 @@ const uploadFile = (() => {
         let { zipOpts } = opts
         if (zipOpts === true) zipOpts = {} as ZipWriterConstructorOptions
         if (zipOpts) {
-          const zipFile = await zip(fileList)
+          const zipFile = await zip(fileList, zipOpts)
           return resolve({ fileList, zipFile })
         }
 
