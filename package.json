@@ -23,7 +23,8 @@
     "dev": "vite",
     "doc": "typedoc",
     "build": "vite build",
-    "prepublish": "vite build"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "prepublish": "vite build && npm run changelog"
   },
   "dependencies": {
     "@zip.js/zip.js": "^2.7.30",
@@ -40,6 +41,7 @@
     "@types/lodash": "^4.14.194",
     "@types/mime": "^3.0.3",
     "@types/node": "^18.15.11",
+    "conventional-changelog-cli": "^4.1.0",
     "tslib": "^2.6.2",
     "typedoc": "^0.24.4",
     "typedoc-plugin-markdown": "^3.17.1",
@@ -48,3 +50,4 @@
     "vite-plugin-dts": "^3.6.4"
   }
 }
+
