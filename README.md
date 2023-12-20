@@ -46,13 +46,13 @@
 1. 引入本地 js 文件
 
    ```html
-   <script src="./dist/can-can-word-bug.umd.cjs"></script>
+   <script src="./dist/can-can-word-bug.umd.js"></script>
    ```
 
    或者使用在线 CDN
 
    ```html
-   <script src="https://unpkg.com/can-can-word-bug@latest/dist/can-can-word-bug.umd.cjs"></script>
+   <script src="https://unpkg.com/can-can-word-bug@latest/dist/can-can-word-bug.umd.js"></script>
    ```
 
 2. 使用函数
