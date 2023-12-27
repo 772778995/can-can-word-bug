@@ -1,7 +1,8 @@
 {
   "name": "can-can-word-bug",
-  "version": "0.3.5",
-  "main": "dist/can-can-word-bug.umd.cjs",
+  "version": "0.3.6",
+  "type": "module",
+  "main": "dist/can-can-word-bug.es.js",
   "module": "dist/can-can-word-bug.es.js",
   "types": "dist/can-can-word-bug.d.ts",
   "description": "can-can-word-bug  是一个 TS 编写的工具库",
