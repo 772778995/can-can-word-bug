@@ -1,6 +1,6 @@
 {
   "name": "can-can-word-bug",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "type": "module",
   "main": "dist/can-can-word-bug.es.js",
   "module": "dist/can-can-word-bug.es.js",
@@ -22,7 +22,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node ./build.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "doc": "typedoc && npm run changelog",
     "prepublish": "vite build && npm run doc"

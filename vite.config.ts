@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import packageJSON from './package.json'
 import ViteDTS from 'vite-plugin-dts'
 
-const pkgName = packageJSON.name.replace(/-\w/g, s => s[1].toUpperCase())
+const pkgName = packageJSON.name
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,10 +12,11 @@ export default defineConfig({
   },
   build: {
     lib: {
-      name: pkgName,
-      entry: './src/can-can-word-bug.ts',
-      formats: ['cjs', 'es', 'umd', 'iife'],
+      name: pkgName.replace(/-\w/g, s => s[1].toUpperCase()),
+      entry: `./src/${pkgName}.ts`,
+      formats: ['umd', 'iife'],
       fileName: (format, name) => `${name}.${format}.js`
-    }
+    },
+    emptyOutDir: false
   }
 })
