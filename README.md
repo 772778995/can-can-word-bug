@@ -18,7 +18,7 @@
 
 ### npm 引用
 
-其中的每一个函数都是可以按需引入的，强烈建议使用 npm 的方式使用该依赖
+如果你使用现代打包工具，那么其中的每一个函数都是可以按需引入的，不需要担心体积过大的问题
 
 1. 安装依赖
 
@@ -32,6 +32,8 @@
 
    ```typescript
    import { getUUID } from 'can-can-word-bug'
+   // 或者：
+   // import getUUID from 'can-can-word-bug/string/getUUID'
 
    const getFiles = async () => {
      const uuid = getUUID()
@@ -52,7 +54,7 @@
    或者使用在线 CDN
 
    ```html
-   <script src="https://unpkg.com/can-can-word-bug@latest/dist/can-can-word-bug.umd.js"></script>
+   <script src="https://registry.npmmirror.com/can-can-word-bug/latest/files/dist/can-can-word-bug.umd.js"></script>
    ```
 
 2. 使用函数
