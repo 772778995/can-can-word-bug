@@ -75,7 +75,7 @@ type MergedType = DeepMerge<TypeA, TypeB>
 
 #### Defined in
 
-[src/types/DeepMerge.ts:21](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/DeepMerge.ts#L21)
+[src/types/DeepMerge.ts:21](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/DeepMerge.ts#L21)
 
 ___
 
@@ -111,7 +111,7 @@ type PersonPartial = DeepPartial<Person>;
 
 #### Defined in
 
-[src/types/DeepPartial.ts:18](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/DeepPartial.ts#L18)
+[src/types/DeepPartial.ts:18](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/DeepPartial.ts#L18)
 
 ___
 
@@ -147,7 +147,7 @@ type PersonRequired = DeepRequired<Person>;
 
 #### Defined in
 
-[src/types/DeepRequired.ts:18](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/DeepRequired.ts#L18)
+[src/types/DeepRequired.ts:18](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/DeepRequired.ts#L18)
 
 ___
 
@@ -178,7 +178,7 @@ const c: ResType = { a: 'a', b: 'b', } // 报错
 
 #### Defined in
 
-[src/types/EitherOr.ts:40](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/EitherOr.ts#L40)
+[src/types/EitherOr.ts:40](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/EitherOr.ts#L40)
 
 ___
 
@@ -207,7 +207,7 @@ type ToFive = Enumerate<5> // 0 | 1 | 2 | 3 | 4
 
 #### Defined in
 
-[src/types/Enumerate.ts:7](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/Enumerate.ts#L7)
+[src/types/Enumerate.ts:7](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/Enumerate.ts#L7)
 
 ___
 
@@ -241,7 +241,7 @@ type TypeC = ExtractCommonProps<TypeA, TypeB> // { prop1: number | string }
 
 #### Defined in
 
-[src/types/ExtractCommonProps.ts:17](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/ExtractCommonProps.ts#L17)
+[src/types/ExtractCommonProps.ts:17](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/ExtractCommonProps.ts#L17)
 
 ___
 
@@ -251,7 +251,7 @@ ___
 
 #### Defined in
 
-[src/types/HTMLElementTagName.ts:1](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/HTMLElementTagName.ts#L1)
+[src/types/HTMLElementTagName.ts:1](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/HTMLElementTagName.ts#L1)
 
 ___
 
@@ -274,7 +274,7 @@ const unknowObj: Object = {}
 
 #### Defined in
 
-[src/types/Object.ts:7](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/Object.ts#L7)
+[src/types/Object.ts:7](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/Object.ts#L7)
 
 ___
 
@@ -307,7 +307,7 @@ const partialPerson: PartialBy<Person, 'age' | 'address'> = {
 
 #### Defined in
 
-[src/types/PartialBy.ts:14](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/PartialBy.ts#L14)
+[src/types/PartialBy.ts:14](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/PartialBy.ts#L14)
 
 ___
 
@@ -336,7 +336,7 @@ type FiveToTen = RangeNum<5, 10> // 5 | 6 | 7 | 8 | 9
 
 #### Defined in
 
-[src/types/RangeNum.ts:9](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/RangeNum.ts#L9)
+[src/types/RangeNum.ts:9](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/RangeNum.ts#L9)
 
 ___
 
@@ -372,7 +372,7 @@ readonlyPerson.address = 'xxx'  // error
 
 #### Defined in
 
-[src/types/ReadonlyBy.ts:17](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/ReadonlyBy.ts#L17)
+[src/types/ReadonlyBy.ts:17](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/ReadonlyBy.ts#L17)
 
 ___
 
@@ -405,7 +405,7 @@ const requiredPerson: RequiredBy<Person, 'age' | 'address'> = {
 
 #### Defined in
 
-[src/types/RequiredBy.ts:14](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/RequiredBy.ts#L14)
+[src/types/RequiredBy.ts:14](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/RequiredBy.ts#L14)
 
 ___
 
@@ -433,7 +433,7 @@ type PersonValues = ValueOf<Person>; // string | number
 
 #### Defined in
 
-[src/types/ValueOf.ts:10](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/ValueOf.ts#L10)
+[src/types/ValueOf.ts:10](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/ValueOf.ts#L10)
 
 ___
 
@@ -451,7 +451,7 @@ ___
 
 #### Defined in
 
-[src/types/Writable.ts:4](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/Writable.ts#L4)
+[src/types/Writable.ts:4](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/Writable.ts#L4)
 
 ___
 
@@ -487,7 +487,7 @@ writablePerson.name = 'xxx' // error
 
 #### Defined in
 
-[src/types/WritableBy.ts:19](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/types/WritableBy.ts#L19)
+[src/types/WritableBy.ts:19](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/types/WritableBy.ts#L19)
 
 ## Functions
 
@@ -519,7 +519,7 @@ HTML元素
 
 #### Defined in
 
-[src/el/createEl.ts:10](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/el/createEl.ts#L10)
+[src/el/createEl.ts:10](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/el/createEl.ts#L10)
 
 ___
 
@@ -542,7 +542,7 @@ ___
 
 #### Defined in
 
-[src/string/getCrypto.ts:15](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/string/getCrypto.ts#L15)
+[src/string/getCrypto.ts:15](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/string/getCrypto.ts#L15)
 
 ___
 
@@ -573,7 +573,7 @@ const fn = async () => {
 
 #### Defined in
 
-[src/promise/delay.ts:9](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/promise/delay.ts#L9)
+[src/promise/delay.ts:9](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/promise/delay.ts#L9)
 
 ___
 
@@ -596,7 +596,7 @@ ___
 
 #### Defined in
 
-[src/string/getCrypto.ts:8](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/string/getCrypto.ts#L8)
+[src/string/getCrypto.ts:8](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/string/getCrypto.ts#L8)
 
 ___
 
@@ -604,7 +604,7 @@ ___
 
 ▸ **exportCsv**(`fileName`, `data`): `void`
 
-导出 csv 文件
+# 导出 csv 文件
 
 #### Parameters
 
@@ -628,7 +628,7 @@ exportCsv([
 
 #### Defined in
 
-[src/file/csv.ts:25](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/file/csv.ts#L25)
+[src/file/csv.ts:28](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/file/csv.ts#L28)
 
 ___
 
@@ -669,7 +669,7 @@ decryptedStr  : ${decryptedStr}
 
 #### Defined in
 
-[src/string/getCrypto.ts:31](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/string/getCrypto.ts#L31)
+[src/string/getCrypto.ts:31](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/string/getCrypto.ts#L31)
 
 ___
 
@@ -677,7 +677,14 @@ ___
 
 ▸ **getCsvStr**(`data`): `string`
 
-获取 csv 表格字符串
+# 获取 csv 表格字符串
+## 示例：
+```ts
+getCsvStr([
+   { name: '姓名', phone: '手机号', department: '部门' },
+   { name: '张三', phone: '13777777777', department: '技术部' }
+]) // 姓名,手机号,部门\r\n张三,13777777777,技术部
+```
 
 #### Parameters
 
@@ -689,20 +696,11 @@ ___
 
 `string`
 
-csv 表格字符串
-
-**`Example`**
-
-```ts
-getCsvStr([
- { name: '姓名', phone: '手机号', department: '部门' },
- { name: '张三', phone: '13777777777', department: '技术部' }
-]) // 姓名,手机号,部门\r\n张三,13777777777,技术部
-```
+返回 csv 字符串
 
 #### Defined in
 
-[src/file/csv.ts:13](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/file/csv.ts#L13)
+[src/file/csv.ts:15](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/file/csv.ts#L15)
 
 ___
 
@@ -736,7 +734,7 @@ document.onclick = async () => {
 
 #### Defined in
 
-[src/img/getImgSize.ts:15](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/img/getImgSize.ts#L15)
+[src/img/getImgSize.ts:15](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/img/getImgSize.ts#L15)
 
 ___
 
@@ -794,7 +792,7 @@ localForage
 
 #### Defined in
 
-[src/storage/getLocalForage.ts:45](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/storage/getLocalForage.ts#L45)
+[src/storage/getLocalForage.ts:45](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/storage/getLocalForage.ts#L45)
 
 ___
 
@@ -821,7 +819,7 @@ ___
 
 #### Defined in
 
-[src/type/getType.ts:1](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/type/getType.ts#L1)
+[src/type/getType.ts:1](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/type/getType.ts#L1)
 
 ___
 
@@ -843,7 +841,7 @@ getUUID() // xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 #### Defined in
 
-[src/string/getUUID.ts:6](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/string/getUUID.ts#L6)
+[src/string/getUUID.ts:6](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/string/getUUID.ts#L6)
 
 ___
 
@@ -866,7 +864,7 @@ ___
 
 #### Defined in
 
-[src/el/isElementVisible.ts:2](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/el/isElementVisible.ts#L2)
+[src/el/isElementVisible.ts:2](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/el/isElementVisible.ts#L2)
 
 ___
 
@@ -874,7 +872,26 @@ ___
 
 ▸ **uploadFile**\<`Opts`, `Res`\>(`opts?`): `Promise`\<`Res`\>
 
-上传文件
+# 上传文件
+## 注意：必须通过用户事件触发该函数，比如 click 事件
+## 示例：
+```ts
+import { uploadFile } from 'can-can-word-bug'
+document.body.addEventListener('click', async () => {
+   const res = await uploadFile({
+     'accept': 'image/*',         // 接受所有图片文件
+      multiple: false,            // 是否多选
+      capture: 'camera',          // 'camera' | 'camcorder' | 'microphone'
+      directory: false,           // 是否允许选择文件夹
+      mozFullPath: false,         // 是否返回完整路径，仅 Firefox 支持
+      webkitRelativePath: false,  // 是否返回 webkitRelativePath，仅 WebKit 支持
+      zipOpts: false,             // 是否压缩文件
+      maxSize: false,             // 最大文件大小，单位：字节
+      checkAllFileSize: false     // 是否检查所有文件大小，单位：字节
+   })
+   console.log(res)
+})
+```
 
 #### Type parameters
 
@@ -887,30 +904,12 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `opts` | `Opts` | 配置选项 |
+| `opts` | `Opts` | # 配置选项 |
 
 #### Returns
 
 `Promise`\<`Res`\>
 
-**`Example`**
-
-```ts
-uploadFile({
-  'accept': 'image/*', // 接受所有图片文件 HTML5（支持）
-  // 'accept': 'audio/*', // 接受所有音频文件 HTML5（支持）
-  // 'accept': 'video/*', // 接受所有视频文件 HTML5（支持）
-  multiple: false, // 是否多选
-  capture: 'camera', // 'camera' | 'camcorder' | 'microphone'
-  directory: false, // 是否允许选择文件夹
-  mozFullPath: false, // 是否返回完整路径，仅 Firefox 支持
-  webkitRelativePath: false, // 是否返回 webkitRelativePath，仅 WebKit 支持
-  zipOpts: false, // 是否压缩文件
-  maxSize: false, // 最大文件大小，单位：字节
-  checkAllFileSize: false // 是否检查所有文件大小，单位：字节
-})
-```
-
 #### Defined in
 
-[src/file/uploadFile.ts:27](https://github.com/772778995/can-can-word-bug/blob/799bd35/src/file/uploadFile.ts#L27)
+[src/file/uploadFile.ts:31](https://github.com/772778995/can-can-word-bug/blob/e5b8827/src/file/uploadFile.ts#L31)
