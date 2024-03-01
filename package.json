@@ -23,7 +23,7 @@
   "scripts": {
     "dev": "vite",
     "build": "node ./build.js",
-    "version": "typedoc && conventional-changelog -p angular -i CHANGELOG.md -s git add CHANGELOG.md docs/modules.md",
+    "version": "typedoc && conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md docs/modules.md",
     "prepublish": "npm run build"
   },
   "dependencies": {
