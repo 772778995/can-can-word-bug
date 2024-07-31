@@ -40,7 +40,7 @@ const uploadFile = (() => {
        *   // accept: 'image/*',                  // 接受所有视频文件
        *   // accept: 'image/png',                // 等同 '.png'，只接受 png 图片
        *   // accept: ''image/png, image/jpeg'',  // 等同 '.png, .jpg, .jpeg'，只接受 PNG 和 JPEG 文件
-       *   // accept: '.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document', // 接受所有视频文件
+       *   // accept: '.doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document', // 接受所有文档文件
        * })
        * ```
        * ---
