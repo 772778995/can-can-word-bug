@@ -1,13 +1,13 @@
 {
   "name": "can-can-word-bug",
-  "version": "0.3.9",
+  "version": "0.3.10",
   "type": "module",
   "main": "dist/can-can-word-bug.js",
   "module": "dist/can-can-word-bug.js",
   "types": "dist/can-can-word-bug.d.ts",
   "exports": {
     ".": {
-      "default": "./dist/can-can-word-bug.js",
+      "default": "./dist/can-can-word-bug.cjs",
       "import": "./dist/can-can-word-bug.js",
       "require": "./dist/can-can-word-bug.cjs",
       "types": "./dist/can-can-word-bug.d.ts"
