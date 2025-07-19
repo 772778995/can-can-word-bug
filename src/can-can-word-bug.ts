@@ -7,6 +7,7 @@ export { default as getLocalForage } from './storage/getLocalForage'
 
 // img
 export { default as getImgMeta } from './img/getImgSize'
+export { default as getAvatar } from './img/getAvatar'
 
 // file
 export { default as uploadFile } from './file/uploadFile'
